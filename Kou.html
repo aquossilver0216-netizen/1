@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>送る前にアドバイス！</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      color: #333;
+    }
+    header {
+      padding: 24px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+    header p {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 20px;
+      margin: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    textarea {
+      width: 100%;
+      height: 120px;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      padding: 12px;
+      font-size: 1rem;
+      resize: none;
+    }
+    button {
+      width: 100%;
+      margin-top: 16px;
+      padding: 14px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    .result {
+      margin-top: 16px;
+      padding: 14px;
+      background: #f3f4ff;
+      border-radius: 12px;
+    }
+    .premium {
+      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+      color: #222;
+    }
+    .price {
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin: 12px 0;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      opacity: 0.8;
+      padding: 16px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>💬 送る前にアドバイス！</h1>
+    <p style="font-size:1.1rem;font-weight:600;">そのLINE、送る前にちょっとだけ相談しよ。</p>
+    <p style="font-size:0.9rem;opacity:.85;">高校生のための、恋愛LINEアドバイス</p>
+    <p style="font-size:0.8rem;opacity:.7;">※匿名・無料・登録なし</p>
+  </header>
+
+  <div class="card">
+    <h2>① 送りたい文章を入力</h2>
+    <label>② シチュエーションを選ぶ</label><br>
+    <select id="scene" style="width:100%;padding:10px;border-radius:12px;margin-bottom:12px;">
+      <option>初めてLINEする</option>
+      <option>デート後</option>
+      <option>久しぶりに送る</option>
+    </select>
+    <textarea placeholder="例：昨日はありがとう！また話したいなって思って…"></textarea>
+    <button onclick="showAdvice()">アドバイスを見る</button>
+    <div class="result" id="result" style="display:none;"></div>
+    <div class="result" id="meter" style="display:none;margin-top:12px;"></div>
+  </div>
+
+  <div class="card premium">
+    <h2>🌟 プレミアムプラン</h2>
+    <p>本気で成功させたい人向け（いつでも解約OK）</p>
+    <div class="price">月 ¥
+    <ul>
+      <li>✔ シチュエーション別アドバイス</li>
+      <li>✔ 脈あり度チェック</li>
+      <li>✔ NG表現リスト</li>
+    </ul>
+    <button onclick="alert('今は準備中だよ！')">プレミアムに登録</button>
+  </div>
+
+  <footer>
+    ※このサービスはアドバイスを提供するもので、結果を保証するものではありません。
+  </footer>
+
+  <script>
+    function showAdvice() {
+      const result = document.getElementById('result');
+      const meter = document.getElementById('meter');
+      const scene = document.getElementById('scene').value;
+      result.style.display = 'block';
+      meter.style.display = 'block';
+
+      result.innerHTML = `
+      <strong>📌 シチュエーション：</strong>${scene}<br><br>
+      <strong>① 総合アドバイス</strong><br>
+      今の文章は好印象！相手が返しやすい形になってるよ。<br><br>
+      <strong>② 改善ポイント</strong><br>
+      ・少しやわらかい語尾を使う<br>
+      ・質問は1つだけにする<br>
+      ・ポジティブな感情を入れる<br><br>
+      <strong>✨ 改善例（3パターン）</strong><br>
+      【やさしめ】昨日はありがとう😊 すごく楽しかった！また少し話せたらうれしいな。<br><br>
+      【フランク】昨日ありがと！普通に楽しかった笑 また話そ〜！<br><br>
+      【大人っぽい】昨日はありがとう。いい時間だったよ。またゆっくり話せたら嬉しい。
+      `;
+
+      meter.innerHTML = `
+      <strong>💗 脈あり度</strong><br>
+      ★★★☆☆（60%）<br>
+      いい雰囲気！焦らず今の距離感を大事にすると◎
+      `;
+    }
+  </script>
+</body>
+</html>
